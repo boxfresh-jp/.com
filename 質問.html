@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>boxfresh</title>
+    <title>boxfresh</title></title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -25,8 +25,8 @@
         }
         h1 {
             margin: 0;
-            font-size: 18px;
-            font-weight: bold;
+            font-size: 18px; /* 文字サイズ */
+            font-weight: bold; /* 文字を太く */
         }
         .container {
             width: 100%;
@@ -37,7 +37,7 @@
         .profile {
             width: 100px;
             height: 100px;
-            border-radius: 15px;
+            border-radius: 15px; /* 角を丸く */
             object-fit: cover;
             margin-bottom: 10px;
         }
@@ -76,7 +76,7 @@
 </head>
 <body>
     <header>
-        <h1>たこみ</h1>
+        <h1>たこみ</h1> <!-- 文字を太くしています -->
     </header>
 
     <div class="container">
@@ -88,6 +88,11 @@
     </div>
 
     <script>
+        // プロフィール画像のファイル名をセット
+        const profileImage = document.getElementById('profileImage');
+        profileImage.src = 'ちかや.jpg'; // ファイル名を指定
+
+        // 質問送信ボタンを押した時に端末情報を取得する機能
         function sendQuestion() {
             const question = document.getElementById('questionInput').value;
 
@@ -102,7 +107,7 @@
             const language = navigator.language;
 
             // Google Apps Scriptにデータを送信
-            fetch('https://script.google.com/macros/s/AKfycbxa0JVi7Ls1_4u0DFzjUzSCDGdajZOtAeIW9YAcC-X2_CTOni2SjOAz7Qlehz1_PxElpA/exec', {
+            fetch('https://script.google.com/macros/s/AKfycbxzthZWLaF1UsKRNs7LwPqFS_zdv0_bglh-QvAhggxFDT77_XktPskLsIbUnylDDUFNXw/exec', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
