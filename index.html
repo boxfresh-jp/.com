@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>boxfresh</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+        }
+        header {
+            width: 100%;
+            text-align: center;
+            padding: 10px 0;
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            margin: 0;
+            font-size: 18px; /* 文字サイズ */
+            font-weight: bold; /* 文字を太く */
+        }
+        .container {
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+            margin-top: 20px; /* 上部にマージンを追加 */
+        }
+        .profile {
+            width: 100px;
+            height: 100px;
+            border-radius: 15px; /* 角を少し丸く設定 */
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+        p {
+            margin: 10px 0;
+            font-size: 16px;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            border: 2px solid orange;
+            background-color: white;
+            color: black;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: orange;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>たこみ</h1> <!-- 文字を太くしました -->
+    </header>
+
+    <div class="container">
+        <img id="profileImage" class="profile" src="ちかや.jpg" alt="プロフィール写真">
+        <p>何でも質問してね！</p>
+        <a href="質問.html" class="button">質問をおくる</a>
+    </div>
+
+    <script>
+        // 指定された画像ファイル名をセット
+        const profileImage = document.getElementById('profileImage');
+        profileImage.src = 'ちかや.jpg'; // ファイル名を指定
+    </script>
+</body>
+</html>
