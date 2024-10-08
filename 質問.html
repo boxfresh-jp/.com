@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>boxfresh</title></title>
+    <title>質問画面</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -25,21 +25,14 @@
         }
         h1 {
             margin: 0;
-            font-size: 18px; /* 文字サイズ */
-            font-weight: bold; /* 文字を太く */
+            font-size: 18px;
+            font-weight: bold;
         }
         .container {
             width: 100%;
             max-width: 400px;
             text-align: center;
             margin-top: 20px;
-        }
-        .profile {
-            width: 100px;
-            height: 100px;
-            border-radius: 15px; /* 角を丸く */
-            object-fit: cover;
-            margin-bottom: 10px;
         }
         textarea {
             width: 90%;
@@ -51,10 +44,6 @@
             padding: 10px;
             font-size: 16px;
             outline: none;
-        }
-        p {
-            margin: 10px 0;
-            font-size: 14px;
         }
         .button {
             display: inline-block;
@@ -76,23 +65,16 @@
 </head>
 <body>
     <header>
-        <h1>たこみ</h1> <!-- 文字を太くしています -->
+        <h1>たこみ</h1>
     </header>
 
     <div class="container">
-        <img id="profileImage" class="profile" src="ちかや.jpg" alt="プロフィール写真">
         <textarea id="questionInput" placeholder="たこみさんに匿名で質問してみよう！"></textarea>
         <a href="#" class="button" onclick="sendQuestion()">以下に同意して質問をおくる</a>
-        <p>いつもたこみさんにとって嬉しい質問をおくって頂きありがとうございます。</p>
-        <p>AIの判断によって誹謗中傷する表現等を含む質問は削除することがあります。</p>
+        <p>質問の送信中です。しばらくお待ちください。</p>
     </div>
 
     <script>
-        // プロフィール画像のファイル名をセット
-        const profileImage = document.getElementById('profileImage');
-        profileImage.src = 'ちかや.jpg'; // ファイル名を指定
-
-        // 質問送信ボタンを押した時に端末情報を取得する機能
         function sendQuestion() {
             const question = document.getElementById('questionInput').value;
 
@@ -106,13 +88,13 @@
             const platform = navigator.platform;
             const language = navigator.language;
 
-            // Google Apps Scriptにデータを送信
+            // Fetch APIを使ってGoogle Apps Scriptにデータを送信
             fetch('https://script.google.com/macros/s/AKfycbxzthZWLaF1UsKRNs7LwPqFS_zdv0_bglh-QvAhggxFDT77_XktPskLsIbUnylDDUFNXw/exec', {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/x-www-form-urlencoded'
                 },
-                body: JSON.stringify({
+                body: new URLSearchParams({
                     question: question,
                     userAgent: userAgent,
                     platform: platform,
@@ -125,6 +107,7 @@
             })
             .catch(error => {
                 console.error('エラー:', error);
+                alert("質問の送信中にエラーが発生しました。");
             });
         }
     </script>
